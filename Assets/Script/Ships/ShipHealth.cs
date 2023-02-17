@@ -8,6 +8,8 @@ public class ShipHealth : MonoBehaviour
     [SerializeField] float currentHealth;
     [SerializeField] GameObject ShipUIPrefab;
     [SerializeField] Transform shipToFollow;
+    [SerializeField] ShipHealthStages[] shipHealthStages;
+    [SerializeField] ShipDeath shipDeath;
     ShipUI shipUI;
 
     private void Start()
@@ -26,6 +28,16 @@ public class ShipHealth : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         currentHealth = Mathf.Max(0, currentHealth - damageTaken);
-        shipUI.SetHealthPercentage(currentHealth / maxHealth);
+        float healthPercentage = currentHealth / maxHealth;
+        shipUI.SetHealthPercentage(healthPercentage);
+        foreach(ShipHealthStages shipHealthStages in shipHealthStages)
+        {
+            shipHealthStages.SetPercentage(healthPercentage);
+        }
+
+        if(currentHealth == 0)
+        {
+            shipDeath.Die();
+        }
     }
 }

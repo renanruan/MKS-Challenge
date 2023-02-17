@@ -10,6 +10,7 @@ public class CannonBall : MonoBehaviour
     [SerializeField] int damage;
     DETECTABLE_LAYERS target;
     [SerializeField] float lifeSpawn;
+    [SerializeField] GameObject explosionEffect;
 
 
     private void FixedUpdate()
@@ -31,6 +32,7 @@ public class CannonBall : MonoBehaviour
         if(raycastHit2D.transform != null)
         {
             DoDamageToTarger(raycastHit2D.transform.parent.parent.gameObject);
+            CreateExplosion();
             AutoDestroy();
         }
     }
@@ -38,6 +40,11 @@ public class CannonBall : MonoBehaviour
     void DoDamageToTarger(GameObject targetHit)
     {
         targetHit.GetComponent<ShipHealth>().TakeDamage(damage);
+    }
+
+    void CreateExplosion()
+    {
+        Instantiate(explosionEffect, transform.position, transform.rotation);
     }
 
     void AutoDestroy()

@@ -6,8 +6,8 @@ public class GameManeger : MonoBehaviour
 {
     static GameManeger instance;
 
-    float levelDuration = 100;
-    float enemySpawnTime = 5;
+    int levelDuration = 100;
+    int enemySpawnTime = 5;
 
     private void Awake()
     {
@@ -22,13 +22,23 @@ public class GameManeger : MonoBehaviour
         }
     }
 
-    public static float GetLevelDuration()
+    public static int GetLevelDuration()
     {
         return instance.levelDuration;
     }
 
-    public static float GetEnemySpawnTime()
+    public static void SetLevelDuration(int levelDuration)
+    {
+        instance.levelDuration = levelDuration;
+    }
+
+    public static int GetEnemySpawnTime()
     {
         return instance.enemySpawnTime;
+    }
+
+    public static void SetEnemySpawnTime(int enemySpawnTime)
+    {
+        instance.enemySpawnTime = enemySpawnTime;
     }
 }

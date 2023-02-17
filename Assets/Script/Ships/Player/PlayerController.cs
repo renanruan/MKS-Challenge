@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
-    [SerializeField] PlayerShooting playerShooting;
+    [SerializeField] PlayerForwardShooting playerForwardShooting;
+    [SerializeField] PlayerTripleShooting playerTripleShootingLeft;
+    [SerializeField] PlayerTripleShooting playerTripleShootingRight;
+    [SerializeField] PlayerAnimationControl playerAnimationControl;
+    [SerializeField] PlayerTurnSail playerTurnSail;
 
     void Update()
     {
@@ -17,7 +19,9 @@ public class PlayerController : MonoBehaviour
 
     void GetTurnButton()
     {
-        playerMovement.SetTurnInput(Input.GetAxis("Horizontal"));
+        float turnInput = Input.GetAxis("Horizontal");
+        playerMovement.SetTurnInput(turnInput);
+        playerTurnSail.SetTurnInput(turnInput);
     }
 
     void GetForwardButton()
@@ -27,19 +31,25 @@ public class PlayerController : MonoBehaviour
 
     void GetFrontalShootButton()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && playerForwardShooting.CanShot())
         {
-            playerShooting.ShootForward();
+            playerAnimationControl.StartForwardShootAnimation();
+            playerForwardShooting.Reload();
         }
     }
 
     void GetLateralShootButton()
     {
+        if (Input.GetKeyDown(KeyCode.Q) && playerTripleShootingLeft.CanShot() && !playerAnimationControl.IsShipBodyAnimating())
+        {
+            playerAnimationControl.StartLeftShootAnimation();
+            playerTripleShootingLeft.Reload();
+        }
 
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position, new Vector3(32, 32));
+        if (Input.GetKeyDown(KeyCode.E) && playerTripleShootingRight.CanShot() && !playerAnimationControl.IsShipBodyAnimating())
+        {
+            playerAnimationControl.StartRightShootAnimation();
+            playerTripleShootingRight.Reload();
+        }
     }
 }

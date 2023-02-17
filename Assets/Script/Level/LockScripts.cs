@@ -13,12 +13,14 @@ public class LockScripts : MonoBehaviour
 
     void LockScriptsWhenNotPlaying(LEVE_STATE levelState)
     {
-        bool lockScript = levelState == LEVE_STATE.PLAYING;
+        LockAndUnlockAll(levelState == LEVE_STATE.PLAYING);
+    }
 
+    public void LockAndUnlockAll(bool lockScript)
+    {
         foreach (MonoBehaviour script in ScriptsToLock)
         {
             script.enabled = lockScript;
         }
-
     }
 }

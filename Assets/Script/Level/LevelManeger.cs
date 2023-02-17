@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class LevelManeger : MonoBehaviour
 
     [SerializeField] LEVE_STATE levelState;
     event LevelStateChange onStateChange;
+
+    internal void SubscribeOnLevelStateChange()
+    {
+        throw new NotImplementedException();
+    }
 
     private void Awake()
     {

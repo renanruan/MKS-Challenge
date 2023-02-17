@@ -35,10 +35,18 @@ public class EnemySeekPlayer : MonoBehaviour
 
     bool IsPlayerInRange()
     {
-        return Vector2.Distance(transform.position, playerTransform.position) < signRange;
+        if (wasSeeing)
+        {
+            return Vector2.Distance(transform.position, playerTransform.position) < signRange * 1.5f;
+        }
+        else
+        {
+            return Vector2.Distance(transform.position, playerTransform.position) < signRange;
+        }
+
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, signRange);
     }

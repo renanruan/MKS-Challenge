@@ -33,7 +33,12 @@ public class DetectWallAhead : MonoBehaviour
         return clearPath;
     }
 
-    private void OnDrawGizmos()
+    public Vector2 GetAheadVector()
+    {
+        return transform.right;
+    }
+
+    private void OnDrawGizmosSelected()
     {
         Gizmos.DrawLine(transform.position, transform.position + transform.right * distanceToCheck);
         Gizmos.DrawWireSphere(transform.position + transform.right * distanceToCheck, radius);

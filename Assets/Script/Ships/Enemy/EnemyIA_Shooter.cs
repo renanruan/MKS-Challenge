@@ -31,7 +31,7 @@ public class EnemyIA_Shooter : MonoBehaviour
     void CreateFakeTarget()
     {
         fakeTarget = Instantiate(new GameObject(), transform);
-        movement.SetTarget(playerTransform);
+        movement.SetTarget(fakeTarget.transform);
     }
 
     void RegisterOnPlayerSeeker()
@@ -72,7 +72,11 @@ public class EnemyIA_Shooter : MonoBehaviour
                 }
                 break;
             case EnemyMode.ShootPlayer:
-                shooting.Shoot();
+                if(shooting.CanShot() && IsPlayerOnAim())
+                {
+                    shooting.PullTrigger();
+                    shooting.Reload();
+                }
                 break;
         }
     }
@@ -81,5 +85,16 @@ public class EnemyIA_Shooter : MonoBehaviour
     {
         float angle = Random.Range(0, Mathf.PI * 2);
         fakeTarget.transform.localPosition = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
+    }
+
+    bool IsPlayerOnAim()
+    {
+        return Vector2.Angle(playerTransform.position - transform.position, wallDetector.GetAheadVector()) < 15;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawLine(transform.position, Quaternion.Euler(0, 0, 15) * wallDetector.GetAheadVector() * 3 + transform.position);
+        Gizmos.DrawLine(transform.position, Quaternion.Euler(0, 0, -15) * wallDetector.GetAheadVector() * 3 + transform.position);
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a1b257c5d5cedc43b0246ac94c088dd, type: 3}
+  m_Name: SailGreen
+  m_EditorClassIdentifier: 
+  spritesStages:
+  - {fileID: 21300000, guid: c36733e461aeeb84ea90e61462c10de0, type: 3}
+  - {fileID: 21300000, guid: 229c25be2f4370641a0095f3c0806164, type: 3}
+  - {fileID: 21300000, guid: dcff5d5fe0158a5488898a694040f028, type: 3}
+  - {fileID: 21300000, guid: 834117666588ef2409041c8eecbf21fb, type: 3}
