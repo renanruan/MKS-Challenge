@@ -11,5 +11,6 @@ public class EnemyShooting : ShipShooting
         CannonBall cannonBall = Instantiate(cannonBallObject, shootPoint.position, Quaternion.identity).GetComponent<CannonBall>();
         cannonBall.SetDirection(shootPoint.position - transform.position);
         cannonBall.SetTarget(DETECTABLE_LAYERS.Player);
+        cannonSound.Play();
     }
 }

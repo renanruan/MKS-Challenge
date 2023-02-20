@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3369747940382524938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740517154809000935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256a8cd55029154479bcd1d06149b875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockScripts: {fileID: 740517154809000940}
+  myCollider: {fileID: 740517154238702966}
+  deathExplosion: {fileID: 1016292184994356075}
+  animator: {fileID: 8397531346713609050}
+  pointsToAdd: 10
 --- !u!114 &4953367847174830021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,6 +52,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 145756994423192029, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b314aba01d95ace4989be226b8115302, type: 2}
+    - target: {fileID: 998207057356930005, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 940a00767add40f4dac35aa89620bec0, type: 3}
+    - target: {fileID: 998207057356930005, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713698502265925613, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+      propertyPath: pointsToAdd
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5127645370360673606, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
       propertyPath: healthStages
       value: 
@@ -103,6 +136,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8991730361234147693, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+      propertyPath: maxHealth
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991730361234147693, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+      propertyPath: shipDeath
+      value: 
+      objectReference: {fileID: 3369747940382524938}
     - target: {fileID: 8991730361475833903, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -118,8 +159,40 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8991730361234147680, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
   m_PrefabInstance: {fileID: 8543279506252495495}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &740517154809000940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8991730361234147691, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+  m_PrefabInstance: {fileID: 8543279506252495495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740517154809000935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655535f7444d7de4391ce74d25a51fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &8397531346713609050 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 145756994423192029, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+  m_PrefabInstance: {fileID: 8543279506252495495}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1016292184994356075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8688933698929025516, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+  m_PrefabInstance: {fileID: 8543279506252495495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740517154809000935}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0ca4ee417b9b34c85b0f1b421af33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &740517155387402261 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8991730361880744594, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+  m_PrefabInstance: {fileID: 8543279506252495495}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &740517154238702966 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8991730362878451697, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
   m_PrefabInstance: {fileID: 8543279506252495495}
   m_PrefabAsset: {fileID: 0}

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelTimeManeger : MonoBehaviour
 {
     [SerializeField] Text TimerDisplay;
+    [SerializeField] Image TimerImage;
     float maxTimer;
     float currentTimer;
 
@@ -29,12 +30,14 @@ public class LevelTimeManeger : MonoBehaviour
             currentTimer = maxTimer;
             UpdateTimerDisplay();
             TimerDisplay.enabled = true;
+            TimerImage.enabled = true;
             counting = true;
         }
         else
         {
             counting = false;
             TimerDisplay.enabled = false;
+            TimerImage.enabled = false;
         }
     }
 

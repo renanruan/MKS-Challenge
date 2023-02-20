@@ -2,17 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void PointsEvent(int totalpoints);
+
 public class LevelPointsManeger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static LevelPointsManeger instance;
+
+    int currentPoints = 0;
+    event PointsEvent pointsAdded;
+
+    private void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddPoints(int newPoints)
     {
-        
+        currentPoints += newPoints;
+        pointsAdded?.Invoke(currentPoints);
+    }
+
+    public void SubscribeOnPointsAddedEvent(PointsEvent pointsEvent)
+    {
+        pointsAdded += pointsEvent;
+    }
+
+    public int GetTotalPoints()
+    {
+        return currentPoints;
     }
 }

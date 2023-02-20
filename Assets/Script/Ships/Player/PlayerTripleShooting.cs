@@ -19,6 +19,8 @@ public class PlayerTripleShooting : ShipShooting
             PullCurrentTrigger();
         }
 
+        cannonSound.Play();
+
     }
 
     void PullCurrentTrigger()
@@ -26,5 +28,6 @@ public class PlayerTripleShooting : ShipShooting
         CannonBall cannonBall = Instantiate(cannonBallObject, currentOrigin.position, Quaternion.identity).GetComponent<CannonBall>();
         cannonBall.SetDirection(currentDirection);
         cannonBall.SetTarget(DETECTABLE_LAYERS.Enemy);
+        
     }
 }

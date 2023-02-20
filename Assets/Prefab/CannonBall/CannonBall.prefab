@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2498a6889249db84a8a7bb6f38593609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.06
+  radius: 0.08
   speed: 20
   damage: 10
   lifeSpawn: 10

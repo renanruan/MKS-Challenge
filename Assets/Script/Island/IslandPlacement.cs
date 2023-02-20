@@ -36,14 +36,15 @@ public class IslandPlacement : MonoBehaviour
 
     private void Update()
     {
+        if(LevelManeger.instance.GetLevelState() != LEVE_STATE.LOADING)
+        {
+            enabled = false;
+        }
+
         if (!IsFreeOfCollision())
         {
             ChooseRandomAngle();
             ChooseRandomPosition();
-        }
-        else
-        {
-            enabled = false;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum LEVE_STATE { COUNTING_TO_START, PLAYING, FINISHED_LEVEL }
+public enum LEVE_STATE { LOADING , COUNTING_TO_START, PLAYING, FINISHED_LEVEL }
 public delegate void LevelStateChange(LEVE_STATE levelState);
 
 public class LevelManeger : MonoBehaviour
@@ -33,6 +33,12 @@ public class LevelManeger : MonoBehaviour
         this.onStateChange += onStateChange;
     }
 
+    public void StartCounting()
+    {
+        levelState = LEVE_STATE.COUNTING_TO_START;
+        CallLevelStateChange();
+    }
+
     public  void StartPlaying()
     {
         levelState = LEVE_STATE.PLAYING;
@@ -54,6 +60,11 @@ public class LevelManeger : MonoBehaviour
     void CallLevelStateChange()
     {
         onStateChange.Invoke(levelState);
+    }
+
+    public LEVE_STATE GetLevelState()
+    {
+        return levelState;
     }
 
 }

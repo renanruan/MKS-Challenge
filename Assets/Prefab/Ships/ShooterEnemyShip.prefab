@@ -140,8 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad1f3543f16a62429693322ad0edd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 2
+  cooldown: 3
   cannonBallObject: {fileID: 7854265807053882847, guid: abfb022268f36d74db3167c42fa47716, type: 3}
+  cannonSound: {fileID: 770981800053598194}
   shootPoint: {fileID: 2281774346443637216}
 --- !u!1001 &8207415223376520864
 PrefabInstance:
@@ -226,6 +227,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 639b83ef079a4dc4094d7b23ac12b243, type: 3}
+    - target: {fileID: 8887162778356400466, guid: 226c5bee4f5fed44eb3d42f25599510a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c94f357da7020a4fac292e46e66ef8d, type: 3}
+    - target: {fileID: 8887162778356400466, guid: 226c5bee4f5fed44eb3d42f25599510a, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4321048297455831271, guid: c2e25e925f84a8947971ade6416697a2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226c5bee4f5fed44eb3d42f25599510a, type: 3}
 --- !u!1 &8908191277707990343 stripped
@@ -274,5 +283,10 @@ MonoBehaviour:
 --- !u!4 &8908191276525558590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 740517153659665822, guid: 226c5bee4f5fed44eb3d42f25599510a, type: 3}
+  m_PrefabInstance: {fileID: 8207415223376520864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &770981800053598194 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8887162778356400466, guid: 226c5bee4f5fed44eb3d42f25599510a, type: 3}
   m_PrefabInstance: {fileID: 8207415223376520864}
   m_PrefabAsset: {fileID: 0}

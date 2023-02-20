@@ -22,6 +22,12 @@ public class EnemyMovement : MonoBehaviour
     public void TurnToTarget()
     {
         float angleToTarget = Vector3.SignedAngle(turnableParts.right, target.position - transform.position,Vector3.forward);
+
+        if(Mathf.Abs(angleToTarget) < 2)
+        {
+            return;
+        }
+
         if(angleToTarget > 0)
         {
             turnableParts.Rotate(Vector3.forward, turnSpeed * Time.deltaTime);

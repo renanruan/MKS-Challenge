@@ -40,4 +40,9 @@ public class ShipHealth : MonoBehaviour
             shipDeath.Die();
         }
     }
+
+    public bool IsAlive()
+    {
+        return currentHealth > 0;
+    }
 }

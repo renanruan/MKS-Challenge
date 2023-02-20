@@ -6,6 +6,7 @@ public abstract class ShipShooting : MonoBehaviour
 {
     [SerializeField] float cooldown;
     [SerializeField] protected GameObject cannonBallObject;
+    [SerializeField] protected AudioSource cannonSound;
 
     bool recharging;
     float delay;

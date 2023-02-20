@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5140192415079256321, guid: 160db64c112d0be4ea3580eec2b4e24e, type: 3}
       propertyPath: m_Name
-      value: LowCannonBall
+      value: LowCannonBall Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6688916627953935278, guid: 160db64c112d0be4ea3580eec2b4e24e, type: 3}
       propertyPath: m_RootOrder

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] ShipHealth playerHealth;
     static Player instance;
 
     private void Awake()
@@ -14,5 +15,10 @@ public class Player : MonoBehaviour
     public static GameObject GetPlayer()
     {
         return instance.gameObject;
+    }
+
+    public static bool IsPlayerAlive()
+    {
+        return instance.playerHealth.IsAlive();
     }
 }
