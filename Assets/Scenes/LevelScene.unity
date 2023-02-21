@@ -63160,6 +63160,7 @@ MonoBehaviour:
     width: 30
     height: 30
   EnemyPrefabs:
+  - {fileID: 8961937253970641907, guid: ae1c799b44987be40b41ba554c8e593c, type: 3}
   - {fileID: 8908191277707990343, guid: e15e6a8289a3025469774372a01001d6, type: 3}
   minDistanceToPlayer: 3
 --- !u!1 &1807146558

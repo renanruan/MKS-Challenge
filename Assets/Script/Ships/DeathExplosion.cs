@@ -6,9 +6,9 @@ public class DeathExplosion : MonoBehaviour
 {
     [SerializeField] GameObject explosion;
     [SerializeField] Rect explosionArea;
+    [SerializeField] float deathDuration = 1.7f;
+    [SerializeField] float explosionDelay = 0.1f;
 
-    float deathDuration = 1.7f;
-    float explosionDelay = 0.1f;
     float deathDurationTimer;
     float explosionDelayTimer;
 

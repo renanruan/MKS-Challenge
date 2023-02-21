@@ -1011,7 +1011,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToCheck: 0.48
-  radius: 0.16
+  radius: 0.225
+  shipFace: {fileID: 8991730361880744594}
   LayersToDetect: 02000000
 --- !u!1 &8991730362064457707
 GameObject:
@@ -1120,5 +1121,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.35, y: 1}
+  m_Size: {x: 0.45, y: 1}
   m_Direction: 0

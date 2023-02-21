@@ -8,22 +8,30 @@ public class DetectWallAhead : MonoBehaviour
 {
     [SerializeField] float distanceToCheck;
     [SerializeField] float radius;
+    [SerializeField] Transform shipFace;
     [SerializeField] DETECTABLE_LAYERS[] LayersToDetect;
 
     bool clearPath;
+    Vector2 normal;
 
     // Update is called once per frame
     void Update()
     {
-        clearPath = CheckPathAhed();
+        clearPath = CheckPathAhaed();
     }
 
-    bool CheckPathAhed()
+    bool CheckPathAhaed()
     {
         bool detected = false;
         foreach(DETECTABLE_LAYERS layer in LayersToDetect)
         {
-            detected |= Physics2D.CircleCast(transform.position, radius, transform.right, distanceToCheck, LayerMask.GetMask(layer.ToString())).transform != null;
+            RaycastHit2D hit = Physics2D.CircleCast(transform.position, radius, shipFace.right, distanceToCheck, LayerMask.GetMask(layer.ToString()));
+
+            if(hit.transform != null)
+            {
+                detected = true;
+                normal = hit.normal;
+            }
         }
         return !detected;
     }
@@ -36,6 +44,16 @@ public class DetectWallAhead : MonoBehaviour
     public Vector2 GetAheadVector()
     {
         return transform.right;
+    }
+
+    public Vector2 GetCollisionNormal()
+    {
+        return normal;
+    }
+
+    public void SetDistanceToCheck(float distanceToCheck)
+    {
+        this.distanceToCheck = distanceToCheck;
     }
 
     private void OnDrawGizmosSelected()

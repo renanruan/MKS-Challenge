@@ -10,6 +10,7 @@ public class EnemyIA_Shooter : MonoBehaviour
     [SerializeField] EnemyMovement movement;
     [SerializeField] EnemyShooting shooting;
     [SerializeField] DetectWallAhead wallDetector;
+
     Transform playerTransform;
     EnemyMode enemyMode;
     GameObject fakeTarget;
