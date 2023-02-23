@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e7789422273d24e834136594f1e59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 2
+  cooldown: 1
   cannonBallObject: {fileID: 7854265807053882847, guid: abfb022268f36d74db3167c42fa47716, type: 3}
   cannonSound: {fileID: 155099351284174435}
   frontalShootingPoint: {fileID: 4512328569650684036}
@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebe907092ee1ec4da7f3f53a0a46c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 180
-  forwardSpeed: 1
+  turnSpeed: 75
+  forwardSpeed: 1.2
   turnableParts: {fileID: 8301353548275050276}
   wallDetector: {fileID: 8301353548275050277}
 --- !u!114 &4390522289028525958
@@ -259,6 +259,7 @@ MonoBehaviour:
   myCollider: {fileID: 8301353547125303879}
   deathExplosion: {fileID: 8604150348186522714}
   animator: {fileID: 1006707592375602283}
+  waterParticleSystem: {fileID: 2073330556701339348}
 --- !u!1 &1272790835880668402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,9 +1111,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8991730361234147680, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
   m_PrefabInstance: {fileID: 1152180495512237494}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &8301353547125303879 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8991730362878451697, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+--- !u!198 &2073330556701339348 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1385047265848499042, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
   m_PrefabInstance: {fileID: 1152180495512237494}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &155099351284174435 stripped
@@ -1139,5 +1140,10 @@ MonoBehaviour:
 --- !u!4 &8301353547855409839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8991730362534741785, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+  m_PrefabInstance: {fileID: 1152180495512237494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &8301353547125303879 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8991730362878451697, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
   m_PrefabInstance: {fileID: 1152180495512237494}
   m_PrefabAsset: {fileID: 0}

@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2626301525392728595, guid: 160db64c112d0be4ea3580eec2b4e24e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5140192415079256321, guid: 160db64c112d0be4ea3580eec2b4e24e, type: 3}
       propertyPath: m_Name
-      value: HighCannonBall
+      value: HighCannonBall Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6688916627953935278, guid: 160db64c112d0be4ea3580eec2b4e24e, type: 3}
       propertyPath: m_RootOrder
@@ -54,6 +58,10 @@ PrefabInstance:
     - target: {fileID: 6688916627953935278, guid: 160db64c112d0be4ea3580eec2b4e24e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728985013832501388, guid: 160db64c112d0be4ea3580eec2b4e24e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 160db64c112d0be4ea3580eec2b4e24e, type: 3}

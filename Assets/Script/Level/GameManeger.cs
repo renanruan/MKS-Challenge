@@ -8,6 +8,8 @@ public class GameManeger : MonoBehaviour
 
     int levelDuration = 100;
     int enemySpawnTime = 5;
+    bool firstPlay = true;
+
 
     private void Awake()
     {
@@ -40,5 +42,15 @@ public class GameManeger : MonoBehaviour
     public static void SetEnemySpawnTime(int enemySpawnTime)
     {
         instance.enemySpawnTime = enemySpawnTime;
+    }
+
+    public static bool IsFirstPlay()
+    {
+        return instance.firstPlay;
+    }
+
+    public static void PlayFirstPlay()
+    {
+        instance.firstPlay = false;
     }
 }

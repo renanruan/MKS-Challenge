@@ -8,6 +8,7 @@ public abstract class ShipDeath : MonoBehaviour
     [SerializeField] Collider2D myCollider;
     [SerializeField] DeathExplosion deathExplosion;
     [SerializeField] Animator animator;
+    [SerializeField] ParticleSystem waterParticleSystem;
 
     public void Die()
     {
@@ -16,6 +17,7 @@ public abstract class ShipDeath : MonoBehaviour
         ShipTypeDeath();
         StartExplosions();
         StartSinking();
+        StopEmitingWater();
     }
 
     void StopCompletly()
@@ -36,6 +38,11 @@ public abstract class ShipDeath : MonoBehaviour
     void StartSinking()
     {
         animator.SetTrigger("Death");
+    }
+
+    void StopEmitingWater()
+    {
+        waterParticleSystem.Pause();
     }
 
     protected abstract void ShipTypeDeath();

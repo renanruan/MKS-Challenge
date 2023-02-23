@@ -7,6 +7,7 @@ public class UICover : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] bool isLevelScene;
+    [SerializeField] GameObject instructionPanel;
     public static UICover instance;
 
     string nextLevel;
@@ -31,7 +32,7 @@ public class UICover : MonoBehaviour
 
     public void StartCounting()
     {
-        if(isLevelScene)
+        if(isLevelScene && !instructionPanel.activeSelf)
         {
             LevelManeger.instance.StartCounting();
         }

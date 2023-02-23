@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class CameraFollowPlayer : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] float rotationSpeed;
     [SerializeField] Rect cameraArea;
     Transform player;
     Vector3 playerLastPosition;
     bool moveOnX = true;
     bool moveOnY = true;
+    bool followRotation = false;
 
     void Start()
     {
-        player = Player.GetPlayer().transform;
+        player = Player.GetPlayer().transform.GetChild(0);
         playerLastPosition = player.position;
     }
 
@@ -25,6 +26,11 @@ public class CameraFollowPlayer : MonoBehaviour
             CheckBlockedAxis();
             transform.position = CalculateNewPosition();
             playerLastPosition = player.position;
+        }
+
+        if (transform.rotation.z != player.rotation.z)
+        {
+            CheckDifference();
         }
     }
 
@@ -51,6 +57,8 @@ public class CameraFollowPlayer : MonoBehaviour
         }
     }
 
+
+
     Vector3 CalculateNewPosition()
     {
         Vector3 deltaPosition = player.position - playerLastPosition;
@@ -59,6 +67,38 @@ public class CameraFollowPlayer : MonoBehaviour
         float yPosition = (moveOnY) ? Mathf.Clamp(transform.position.y + deltaPosition.y, cameraArea.yMin, cameraArea.yMax) : transform.position.y;
         
         return new Vector3( xPosition, yPosition, transform.position.z );
+    }
+
+    void CheckDifference()
+    {
+        float diferrence = (player.rotation.eulerAngles.z + 360) % 360 - (transform.rotation.eulerAngles.z + 360) % 360;
+        float rotationDirection = Mathf.Sign(diferrence);
+        diferrence = Mathf.Abs(diferrence);
+
+        if(diferrence > 180)
+        {
+            diferrence = 360 - diferrence;
+            rotationDirection *= -1;
+        }
+
+        if(!followRotation && (diferrence > 60))
+        {
+            followRotation = true;
+        }
+        else if (followRotation)
+        {
+            transform.Rotate(new Vector3(0, 0, rotationDirection * rotationSpeed * Time.deltaTime));
+
+            if (diferrence < 30)
+            {
+                followRotation = false;
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(cameraArea.center, cameraArea.size);
     }
 
 }

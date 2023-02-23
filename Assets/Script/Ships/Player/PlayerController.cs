@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     void GetTurnButton()
     {
         float turnInput = Input.GetAxis("Horizontal");
+        
         playerMovement.SetTurnInput(turnInput);
         playerTurnSail.SetTurnInput(turnInput);
     }
@@ -31,7 +32,15 @@ public class PlayerController : MonoBehaviour
 
     void GetFrontalShootButton()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerForwardShooting.CanShot())
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ShotForward();
+        }
+    }
+
+    public void ShotForward()
+    {
+        if (playerForwardShooting.CanShot())
         {
             playerAnimationControl.StartForwardShootAnimation();
             playerForwardShooting.Reload();
@@ -40,13 +49,29 @@ public class PlayerController : MonoBehaviour
 
     void GetLateralShootButton()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && playerTripleShootingLeft.CanShot() && !playerAnimationControl.IsShipBodyAnimating())
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ShotLeft();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ShotRight();
+        }
+    }
+
+    public void ShotLeft()
+    {
+        if (playerTripleShootingLeft.CanShot() && !playerAnimationControl.IsShipBodyAnimating())
         {
             playerAnimationControl.StartLeftShootAnimation();
             playerTripleShootingLeft.Reload();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.E) && playerTripleShootingRight.CanShot() && !playerAnimationControl.IsShipBodyAnimating())
+    public void ShotRight()
+    {
+        if (playerTripleShootingRight.CanShot() && !playerAnimationControl.IsShipBodyAnimating())
         {
             playerAnimationControl.StartRightShootAnimation();
             playerTripleShootingRight.Reload();

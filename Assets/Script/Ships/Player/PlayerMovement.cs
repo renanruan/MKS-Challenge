@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckForward()
     {
-        if(forwardInput >= 0 && wallDetector.HasClearPath())
+        if (forwardInput >= 0 && wallDetector.HasClearPath())
         {
             GoForward();
         }

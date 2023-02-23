@@ -53,7 +53,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         do
         {
-            currentPoint = new Vector3(Random.Range(spawnArea.xMin, spawnArea.xMax), Random.Range(spawnArea.yMin, spawnArea.yMax));
+            currentPoint = new Vector3(Random.Range(spawnArea.xMin, spawnArea.xMax), Random.Range(spawnArea.yMin, spawnArea.yMax)) + Player.GetPlayer().transform.position;
         } while (IsCloseToPlayer() || IsSpaceOccupied());
     }
 

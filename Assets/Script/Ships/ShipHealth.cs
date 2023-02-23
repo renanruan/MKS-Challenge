@@ -39,6 +39,8 @@ public class ShipHealth : MonoBehaviour
         {
             shipDeath.Die();
         }
+
+        LevelDetrits.DamageAtPoint(transform.position);
     }
 
     public bool IsAlive()

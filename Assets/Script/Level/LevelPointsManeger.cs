@@ -16,6 +16,7 @@ public class LevelPointsManeger : MonoBehaviour
         instance = this;
     }
 
+
     public void AddPoints(int newPoints)
     {
         currentPoints += newPoints;
@@ -31,4 +32,6 @@ public class LevelPointsManeger : MonoBehaviour
     {
         return currentPoints;
     }
+
+
 }

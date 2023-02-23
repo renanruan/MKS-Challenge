@@ -5,6 +5,7 @@ using UnityEngine;
 public class LockScripts : MonoBehaviour
 {
     [SerializeField] MonoBehaviour[] ScriptsToLock;
+    [SerializeField] GameObject[] GameObjectsToLock;
 
     private void Start()
     {
@@ -21,6 +22,11 @@ public class LockScripts : MonoBehaviour
         foreach (MonoBehaviour script in ScriptsToLock)
         {
             script.enabled = lockScript;
+        }
+
+        foreach(GameObject gameObject in GameObjectsToLock)
+        {
+            gameObject.SetActive(lockScript);
         }
     }
 }

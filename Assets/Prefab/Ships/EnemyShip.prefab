@@ -16,6 +16,7 @@ MonoBehaviour:
   myCollider: {fileID: 740517154238702966}
   deathExplosion: {fileID: 1016292184994356075}
   animator: {fileID: 8397531346713609050}
+  waterParticleSystem: {fileID: 7329465818835280357}
   pointsToAdd: 10
 --- !u!114 &4953367847174830021
 MonoBehaviour:
@@ -194,5 +195,10 @@ Transform:
 --- !u!70 &740517154238702966 stripped
 CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 8991730362878451697, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
+  m_PrefabInstance: {fileID: 8543279506252495495}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7329465818835280357 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1385047265848499042, guid: 19d60f584e6e981418af9a76c533f932, type: 3}
   m_PrefabInstance: {fileID: 8543279506252495495}
   m_PrefabAsset: {fileID: 0}

@@ -11,7 +11,7 @@ public class DetectWallAhead : MonoBehaviour
     [SerializeField] Transform shipFace;
     [SerializeField] DETECTABLE_LAYERS[] LayersToDetect;
 
-    bool clearPath;
+    bool clearPath = true;
     Vector2 normal;
 
     // Update is called once per frame
